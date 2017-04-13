@@ -1,0 +1,10 @@
+.box {
+    background: pink;
+    height: 100px;
+    width: 100px;
+}
+.box.end{
+    height: 500px;
+    width: 500px;
+    background: yellow;
+}
