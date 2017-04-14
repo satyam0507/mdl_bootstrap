@@ -3,8 +3,80 @@
     height: 100px;
     width: 100px;
 }
-.box.end{
+
+.box.end {
     height: 500px;
     width: 500px;
     background: yellow;
+}
+
+.demo-card-wide.mdl-card {
+    height: 200px;
+    width: 200px;
+}
+
+.demo-card-wide.mdl-card.open {
+    width: 512px;
+}
+
+.demo-card-wide>.mdl-card__title {
+    color: #fff;
+    height: 200px;
+    background: url('https://www.w3schools.com/css/img_fjords.jpg') center / cover;
+}
+
+.mdl-card__title-text {
+    display: none;
+}
+
+.mdl-card__title-text.open {
+    display: block;
+}
+
+.mdl-card__supporting-text {
+    display: none;
+}
+
+.mdl-card__supporting-text.open {
+    display: block;
+}
+
+.demo-card-wide>.mdl-card__menu {
+    color: #fff;
+    display: none;
+}
+
+.demo-card-wide>.mdl-card__menu.open {
+    display: block;
+}
+
+.mdl-card__actions {
+    display: none;
+}
+
+.mdl-card__actions.open {
+    display: block;
+}
+
+.demo-list-action {
+    width: 300px;
+}
+
+.flex {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.flex.center {
+    align-items: center;
+}
+
+.flex.middle {
+    justify-content: center;
+}
+
+#js-iframe {
+    width: 288px!important;
+    height: 568px!important;
 }

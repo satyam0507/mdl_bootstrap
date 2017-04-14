@@ -12,59 +12,59 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
-'use strict';
+// 'use strict';
 
-var target = document.querySelector('.target');
-var close = document.querySelector('.close');
+// var target = document.querySelector('.target');
+// var close = document.querySelector('.close');
 
-var timingFunctionExpand = function (t) {
-    return --t * t * t * t * t + 1;
-};
+// var timingFunctionExpand = function (t) {
+//     return --t * t * t * t * t + 1;
+// };
 
-var timingFunctionCollapse = function (t) {
-    if ((t *= 2) < 1) {
-        return 0.5 * t * t * t * t * t;
-    }
+// var timingFunctionCollapse = function (t) {
+//     if ((t *= 2) < 1) {
+//         return 0.5 * t * t * t * t * t;
+//     }
 
-    return 0.5 * ((t -= 2) * t * t * t * t + 2);
-};
+//     return 0.5 * ((t -= 2) * t * t * t * t + 2);
+// };
 
-target.addEventListener('click', function () {
-    var flip = new FLIP({
-        element: target,
-        duration: 2000,
-        ease: timingFunctionExpand
-    });
+// target.addEventListener('click', function () {
+//     var flip = new FLIP({
+//         element: target,
+//         duration: 2000,
+//         ease: timingFunctionExpand
+//     });
 
-    // First position & opacity.
-    flip.first();
+//     // First position & opacity.
+//     flip.first();
 
-    // Apply the 'end' class and snapshot the last position & opacity.
-    flip.last('end');
+//     // Apply the 'end' class and snapshot the last position & opacity.
+//     flip.last('end');
 
-    // Move and fade the element back to the original position.
-    flip.invert();
+//     // Move and fade the element back to the original position.
+//     flip.invert();
 
-    // Play it forwards.
-    flip.play();
-});
+//     // Play it forwards.
+//     flip.play();
+// });
 
-close.addEventListener('click', function () {
-    var flip = new FLIP({
-        element: target,
-        duration: 2000,
-        ease: timingFunctionCollapse
-    });
+// close.addEventListener('click', function () {
+//     var flip = new FLIP({
+//         element: target,
+//         duration: 2000,
+//         ease: timingFunctionCollapse
+//     });
 
-    // First position & opacity.
-    flip.first();
-    flip.removeClass('end');
-    // Apply the 'end' class and snapshot the last position & opacity.
-    flip.last();
+//     // First position & opacity.
+//     flip.first();
+//     flip.removeClass('end');
+//     // Apply the 'end' class and snapshot the last position & opacity.
+//     flip.last();
 
-    // Move and fade the element back to the original position.
-    flip.invert();
+//     // Move and fade the element back to the original position.
+//     flip.invert();
 
-    // Play it forwards.
-    flip.play();
-});
+//     // Play it forwards.
+//     flip.play();
+// });

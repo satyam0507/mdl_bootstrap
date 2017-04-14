@@ -6,7 +6,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var source = require('vinyl-source-stream');
 var gulpConcat = require('gulp-concat');
 var runSequence = require('run-sequence');
-var nodemon = require('gulp-nodemon')
+var nodemon = require('gulp-nodemon');
+var sass = require('gulp-sass');
+ 
 
 var bundler = browserify({
   entries: ['./testModule/app.js'],
@@ -39,10 +41,17 @@ gulp.task('server', function () {
   })
 })
 
+gulp.task('scss', function () {
+  return gulp.src('./scss/bootstrap.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./static'));
+});
+
 gulp.task('default', function () {
   runSequence(
     // 'testModule', 
     // 'copy',
+    'scss',
      'server'
      );
 })
