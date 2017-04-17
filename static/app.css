@@ -17,6 +17,7 @@
 
 .demo-card-wide.mdl-card.open {
     width: 512px;
+    height: 100%;
 }
 
 .demo-card-wide>.mdl-card__title {
@@ -25,19 +26,13 @@
     background: url('https://www.w3schools.com/css/img_fjords.jpg') center / cover;
 }
 
-.mdl-card__title-text {
-    display: none;
-}
-
-.mdl-card__title-text.open {
-    display: block;
-}
-
 .mdl-card__supporting-text {
-    display: none;
+     height: 0;
+     display: none;
 }
 
 .mdl-card__supporting-text.open {
+    height: 100%;
     display: block;
 }
 
