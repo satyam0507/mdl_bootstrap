@@ -11,8 +11,8 @@
 }
 
 .demo-card-wide.mdl-card {
-    height: 200px;
-    width: 200px;
+    height:200px;
+    width:200px;
 }
 
 .demo-card-wide.mdl-card.open {
@@ -20,20 +20,23 @@
     height: 100%;
 }
 
+.demo-card__title-container {
+    background-color: pink;
+    height:200px;
+}
+
 .demo-card-wide>.mdl-card__title {
     color: #fff;
-    height: 200px;
+    height:200px;
     background: url('https://www.w3schools.com/css/img_fjords.jpg') center / cover;
 }
 
 .mdl-card__supporting-text {
-     height: 0;
-     display: none;
+    height: 0;
 }
 
 .mdl-card__supporting-text.open {
     height: 100%;
-    display: block;
 }
 
 .demo-card-wide>.mdl-card__menu {

@@ -37,19 +37,26 @@
                     Get Started
                 </a>
             </div>
-            <div class="mdl-card__menu">
+            {{!--<div class="mdl-card__menu">
                 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                    <i class="material-icons">close</i>
                 </button>
-            </div>
+            </div>--}}
         </div>
+        <div class="mdl-card__menu">
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                   <i class="material-icons">close</i>
+                </button>
+        </div>
+
     </div>
 </div>
 
 <script>
     var target = document.querySelector('.demo-card-wide');
     var text = document.querySelector('.mdl-card__supporting-text');
-    //var close = document.querySelector('.close');
+    var close = document.querySelector('.mdl-card__menu');
+    var action = document.querySelector('.mdl-card__actions');
 
     var timingFunctionExpand = function (t) {
         return --t * t * t * t * t + 1;
@@ -71,14 +78,14 @@
         };
 
         var flipGroup = FLIP.group([
-            Object.assign({}, options, { element: target}),
-            Object.assign({}, options, { element: text })
-//            Object.assign({}, options, { element: headerUnderlay }),
-//            Object.assign({}, options, { element: itemUnderlay }),
-//            Object.assign({}, options, { element: itemTitle, delay: 200 }),
-//            Object.assign({}, options, {
-//                element: itemList, duration: 800, delay: 200
-//            })
+            Object.assign({}, options, { element: target }),
+            Object.assign({}, options, { element: text, delay: 200 }),
+            Object.assign({}, options, { element: close }),
+            Object.assign({}, options, { element: action })
+            //            Object.assign({}, options, { element: itemTitle, delay: 200 }),
+            //            Object.assign({}, options, {
+            //                element: itemList, duration: 800, delay: 200
+            //            })
         ]);
 
         // First position & opacity.
@@ -93,6 +100,51 @@
 
         // Play it forwards.
         flipGroup.play();
+    });
+
+    close.addEventListener('click', function () {
+
+        var options = {
+            easing: timingFunctionCollapse,
+            duration: 600,
+            delay: 100
+        };
+
+        var flipGroup = FLIP.group([
+            Object.assign({}, options, { element: target }),
+            Object.assign({}, options, { element: text,delay:300 }),
+            //Object.assign({}, options, { element: close }),
+            Object.assign({}, options, { element: action })
+            //            Object.assign({}, options, { element: itemTitle, delay: 200 }),
+            //            Object.assign({}, options, {
+            //                element: itemList, duration: 800, delay: 200
+            //            })
+        ]);
+
+        // First position (item is expanded) & opacity.
+        flipGroup.first();
+
+        // Set the item to the end position (it doesn't need to animate).
+        flipGroup.removeClass('open');
+
+        // Apply the 'last' class and snapshot the last position & opacity.
+        flipGroup.last();
+
+        // Move and fade the element back to the expanded position.
+        flipGroup.invert();
+
+        // Play it.
+        flipGroup.play();
+
+        // The event to capture at the end of the animation
+        var onFlipComplete = function () {
+            target.removeEventListener('flipComplete', onFlipComplete);
+            text.classList.remove('open');
+        }
+
+        // When the image has finished FLIPing, remove the class from the item itself.
+        //headerImage.addEventListener('flipComplete', onFlipComplete);
+
     });
 
 </script>
